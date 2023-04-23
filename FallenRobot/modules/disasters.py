@@ -25,7 +25,7 @@ from FallenRobot.modules.helper_funcs.chat_status import (
 from FallenRobot.modules.helper_funcs.extraction import extract_user
 from FallenRobot.modules.log_channel import gloggable
 
-ELEVATED_USERS_FILE = os.path.join(os.getcwd(), "FallenRobot/elevated_users.json")
+ELEVATED_USERS_FILE = os.path.join(os.getcwd(), "TanuRobot/elevated_users.json")
 
 
 def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
