@@ -3,9 +3,9 @@ import json
 import requests
 from telegram.ext import CommandHandler, run_async
 
-from MukeshRobot import dispatcher
-from MukeshRobot.modules.helper_funcs.alternate import send_message
-from MukeshRobot.modules.helper_funcs.chat_status import user_admin
+from FallenRobot import dispatcher
+from FallenRobot.modules.helper_funcs.alternate import send_message
+from FallenRobot.modules.helper_funcs.chat_status import user_admin
 
 __mod_name__ = "📍𝙿ʜᴏɴᴇ📍"
 __help__ = """
