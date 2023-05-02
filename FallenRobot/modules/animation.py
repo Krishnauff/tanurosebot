@@ -3,9 +3,9 @@ import time
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
-from MukeshRobot import dispatcher,OWNER_ID
-from MukeshRobot.modules.disable import DisableAbleCommandHandler
-from MukeshRobot.modules.helper_funcs.chat_status import user_admin
+from FallenRobot import dispatcher,OWNER_ID
+from FallenRobot.modules.disable import DisableAbleCommandHandler
+from FallenRobot.modules.helper_funcs.chat_status import user_admin
 
 # sleep how many times after each edit in 'love'
 EDIT_SLEEP = 1
