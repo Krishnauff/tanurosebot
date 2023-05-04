@@ -1,18 +1,24 @@
-
+import json
 
 import requests
 
-import random
+from telegram.ext import CommandHandler, run_async
 
-import os
+from FallenRobot import dispatcher
 
-import re
+from FallenRobot.modules.helper_funcs.alternate import send_message
 
-import asyncio
+from FallenRobot.modules.helper_funcs.chat_status import user_admin
 
-import time
+__mod_name__ = "📍 SHAYRI 📍"
 
-from FallenRobot import app
+__help__ = """
+
+
+
+
+
+
 
 import string
 
