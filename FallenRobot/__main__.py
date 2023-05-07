@@ -213,7 +213,8 @@ def start(update: Update, context: CallbackContext):
                         [[InlineKeyboardButton(text="✯ вαϲк ✯", callback_data="help_back")]]
                     ),
                 )
-
+              elif args[0].lower() == "markdownhelp":
+                IMPORTED["Exᴛʀᴀs"].markdown_help_sender(update)
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
                 chat = dispatcher.bot.getChat(match.group(1))
@@ -259,9 +260,11 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
         )
-elif args[0].lower() == "markdownhelp":
 
-                IMPORTED["Exᴛʀᴀs"].markdown_help_sender(update)
+
+
+
+
 
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
