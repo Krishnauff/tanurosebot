@@ -387,7 +387,7 @@ def help_button(update, context):
 @run_async
 def Fallen_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
-    if query.data == "mukesh_":
+    if query.data == "fallen_":
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
             text=f"*ʜᴇʏ,*🥀\n  *ᴛʜɪs ɪs {dispatcher.bot.first_name}*"
@@ -1138,7 +1138,7 @@ def main():
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
     about_callback_handler = CallbackQueryHandler(
-        Mukesh_about_callback, pattern=r"mukesh_"
+        Fallen_about_callback, pattern=r"fallen_"
     )
     Music_callback_handler = CallbackQueryHandler(
         Music_about_callback, pattern=r"Music_"
