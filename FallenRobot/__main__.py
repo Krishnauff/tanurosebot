@@ -86,7 +86,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+            text="☆ 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 ☆",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
