@@ -728,7 +728,7 @@ def main():
         try:
             dispatcher.bot.send_photo(
                 chat_id=f"@{SUPPORT_CHAT}",
-                photo=START_IMG,
+                animation="https://te.legra.ph/file/52c103ac7f124c3641ef4.jpg",
                 caption=f"""
 ㅤ🥀 {BOT_NAME} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
 
