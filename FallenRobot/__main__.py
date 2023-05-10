@@ -75,31 +75,16 @@ PM_START_TEXT = """
 *ʜᴇʏ* {}, 🥀
 
 *๏ ᴛʜɪs ɪs* {} !
-
-✪ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ғᴏʀ
-
-✯ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ
-
-✯ sᴘᴇᴄɪᴀʟ ᴜsᴇʀ ᴛᴀɢɢᴇʀ 
-
-ᴡɪᴛʜ ᴍᴀɴʏ ᴍᴏʀᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs ғᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...♡
-
-
-╔═════ஜ۩۞۩ஜ════╗
-
-♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐊𝐑𝐈𝐒𝐇𝐍𝐀♨️
-
-╚═════ஜ۩۞۩ஜ════╝
+➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
 
 ──────────────────
-
-๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
+*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="☆ 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 ☆",
+            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
@@ -108,11 +93,11 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="fallen_"),
-        InlineKeyboardButton(text="✨ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
     [
-        InlineKeyboardButton(text="🥀 •kríshnα_uff•🥀", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="☁️ кяιѕниα☁️", callback_data="source_"),
+        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="☁️ sᴏᴜʀᴄᴇ ☁️", callback_data="https://t.me/NO_LOVE_I_HATE_LOVE"),
     ],
 ]
 
@@ -220,7 +205,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_sticker(
-                "CAACAgUAAxkBAANXZDYosNth6jG3yYgxl9lKyw7u_vMAAlwJAAIatrBUxc50rXnR2sIvBA"
+                "CAACAgUAAxkBAAJYsmLWRvm70cE-mmxSNCovEf4v1ueJAAIcCAACbMK4VuL4EmZEkq8WKQQ"
             )
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
@@ -397,7 +382,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         ),
                         InlineKeyboardButton(
                             text="sᴏᴜʀᴄᴇ",
-                            callback_data="source_",
+                            callback_data="https://t.me/NO_LOVE_I_HATE_LOVE",
                         ),
                     ],
                     [
@@ -418,7 +403,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                             text="sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
                         ),
                         InlineKeyboardButton(
-                            text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/ab_krishna_uff"
+                            text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/Ajanabee_Duniya"
                         ),
                     ],
                     [
@@ -427,7 +412,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         ),
                         InlineKeyboardButton(
                             text="ɢɪᴛʜᴜʙ",
-                            url="https://t.me/ab_krishna_uff",
+                            url="https://t.me/Ajanabee_Duniya",
                         ),
                     ],
                     [
@@ -463,10 +448,10 @@ def Source_about_callback(update: Update, context: CallbackContext):
 ᴀɴᴅ ᴜsɪɴɢ [sǫʟᴀʟᴄʜᴇᴍʏ](https://www.sqlalchemy.org) ᴀɴᴅ [ᴍᴏɴɢᴏ](https://cloud.mongodb.com) ᴀs ᴅᴀᴛᴀʙᴀsᴇ.
 
 
-*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://t.me/Ajanabee_Duniya)
+*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://t.me/NO_LOVE_I_HATE_LOVE)
 
 
-{BOT_NAME} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://t.me/ab_krishna_uff).
+{BOT_NAME} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://t.me/Ajanabee_Duniya).
 © 2022 - 2023 | [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_CHAT}), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
 """,
             parse_mode=ParseMode.MARKDOWN,
@@ -735,7 +720,7 @@ def main():
         try:
             dispatcher.bot.send_photo(
                 chat_id=f"@{SUPPORT_CHAT}",
-                photo="https://te.legra.ph/file/52c103ac7f124c3641ef4.jpg",
+                photo=START_IMG,
                 caption=f"""
 ㅤ🥀 {BOT_NAME} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
 
