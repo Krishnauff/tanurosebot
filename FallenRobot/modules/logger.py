@@ -1,4 +1,4 @@
-from config import LOG, LOG_GROUP_ID,
+from config import LOG, EVENT_LOGS,
 from FallenRobot import app
 from FallenRobot.utils.database import is_on_off
 
@@ -21,10 +21,10 @@ async def play_logs(message, streamtype):
 **sᴇᴀʀᴄʜᴇᴅ ғᴏʀ:** {message.text}
 
 **sᴛʀᴇᴀᴍ ᴛʏᴩᴇ:** {streamtype}"""
-        if message.chat.id != LOG_GROUP_ID:
+        if message.chat.id != EVENT_LOGS:
             try:
                 await app.send_message(
-                    LOG_GROUP_ID,
+                    EVENT_LOGS,
                     text=logger_text,
                     disable_web_page_preview=True,
                 )
