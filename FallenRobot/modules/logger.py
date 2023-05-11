@@ -1,6 +1,6 @@
 from config import LOG, LOG_GROUP_ID, MUSIC_BOT_NAME
-from AnonX import app
-from AnonX.utils.database import is_on_off
+from FallenRobot import app
+from FallenRobot.utils.database import is_on_off
 
 
 async def play_logs(message, streamtype):
