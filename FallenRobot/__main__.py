@@ -85,21 +85,21 @@ PM_START_TEXT = """
 
 buttons = [
     [
-        InlineKeyboardButton(
-            text="☆ 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 ☆",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+ InlineKeyboardButton(
+       text="☆ 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 ☆",
+       url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
+    InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="fallen_"),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
+    InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="fallen_"),
+    InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
     [
-        InlineKeyboardButton(text="🥀 ⌯ ㅤ𝐊𝐑𝐈𝐒𝐇𝐍𝐀ㅤ</🇮🇳> 🥀", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="☁️ 𝐑𝐄𝐏𝐎 ☁️", callback_data="source_"),
+    InlineKeyboardButton(text="🥀 ⌯ ㅤ𝐊𝐑𝐈𝐒𝐇𝐍𝐀ㅤ</🇮🇳> 🥀", url=f"tg://user?id={OWNER_ID}"),
+    InlineKeyboardButton(text="☁️ 𝐑𝐄𝐏𝐎 ☁️", callback_data="source_"),
     ],
 ]
 
