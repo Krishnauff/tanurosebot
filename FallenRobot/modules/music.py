@@ -6,7 +6,6 @@ import os
 
 import json
 
-import wget
 
 import textwrap
 
@@ -244,7 +243,7 @@ def video(update: Update, context: CallbackContext):
 
     url = mo
 
-    sedlyf = wget.download(kekme)
+    sedlyf = .download(kekme)
 
     opts = {
 
