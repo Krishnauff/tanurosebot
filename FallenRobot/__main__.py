@@ -72,9 +72,9 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*ʜᴇʏ* [tanu]{}, 🥀
+*ʜᴇʏ* {}, 🥀
 
-*๏ ᴛʜɪs ɪs* {} !
+*๏ ᴛʜɪs ɪs* [Tanu]{} !
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
 ╔═════ஜ۩۞۩ஜ════╗
 ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://t.me/NO_LOVE_I_HATE_LOVE)♨️
