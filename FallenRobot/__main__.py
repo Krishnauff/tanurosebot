@@ -68,13 +68,16 @@ def get_readable_time(seconds: int) -> str:
     time_list.reverse()
     ping_time += ":".join(time_list)
 
-    return ping_time
+      return ping_time
+PM_START_TEX = """
+🍷𝐖𝐞𝐥𝐜𝐨𝐦𝐞 `{}`, 🍷 
+"""
 
 
 PM_START_TEXT = """
 *ʜᴇʏ* {}, 🥀
 
-*๏ ᴛʜɪs ɪs* ᴛᴀɴᴜ ʀᴏʙᴏᴛ !
+*๏ ᴛʜɪs ɪs* {}!
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
 ╔═════ஜ۩۞۩ஜ════╗
 ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://t.me/NO_LOVE_I_HATE_LOVE)♨️
