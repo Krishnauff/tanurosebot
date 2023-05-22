@@ -70,6 +70,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+START_IMG = "https://graph.org/file/1c6f1abaf4b0aadd01fdf.mp4"
 
 PM_START_TEXT = """
 *ʜᴇʏ* {}, 🥀
