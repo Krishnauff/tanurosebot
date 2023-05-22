@@ -106,7 +106,7 @@ InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", callback_data="source_"),
 ]
 
 HELP_STRINGS = f"""
-*» {BOT_NAME} [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/1c6f1abaf4b0aadd01fdf.mp4) ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+*» {BOT_NAME} [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/1c6f1abaf4b0aadd01fdf.mp4)!\n<b> ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
 ➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ.
 ➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
