@@ -73,12 +73,12 @@ def get_readable_time(seconds: int) -> str:
 START_IMG = "https://te.legra.ph/file/58d5cfb03acae36644203.jpg"
 
 PM_START_TEXT = """
-*ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ* {}, 🥀
+*•ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ•* {}, 🥀
 
 *๏ ᴛʜɪs ɪs* {} !
  ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ғᴜɴ ᴇxᴛʀᴀ :-
 ╔═════ஜ۩۞۩ஜ════╗
-♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/1c6f1abaf4b0aadd01fdf.mp4)♨️
+♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/ca464fe7eeb39b4123859.mp4)♨️
 ╚═════ஜ۩۞۩ஜ════╝
 ──────────────────
 *๏ ᴡᴀɴᴛ ᴛᴏ sᴇᴇ ᴍʏ ᴘᴏᴡᴇᴇs ? ʜᴇʜᴇ , ᴜsᴇ /help ᴏʀ ᴄᴀᴍᴍᴀɴᴅs ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛǫ ʙʏ ᴋʀɪsʜɴᴀ :- .*
