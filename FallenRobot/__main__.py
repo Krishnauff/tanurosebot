@@ -73,8 +73,8 @@ def get_readable_time(seconds: int) -> str:
 START_IMG = "https://te.legra.ph/file/58d5cfb03acae36644203.jpg"
 
 PM_START_TEXT = """
-*🥀ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ ❣️* 
-        {}, 🥀
+*🥀ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ ❣️* {}, 🥀
+
 
 *๏ ᴛʜɪs ɪs* {} !
  ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ғᴜɴ ᴇxᴛʀᴀ :-
