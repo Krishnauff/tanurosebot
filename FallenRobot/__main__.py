@@ -73,7 +73,7 @@ def get_readable_time(seconds: int) -> str:
 START_IMG = "https://te.legra.ph/file/58d5cfb03acae36644203.jpg"
 
 PM_START_TEXT = """
-*ʜᴇʏ* {}, 🥀
+*ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ * {}, 🥀
 
 *๏ ᴛʜɪs ɪs* {} !
  ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ғᴜɴ ᴇxᴛʀᴀ :-
@@ -106,7 +106,7 @@ InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", callback_data="source_"),
 ]
 
 HELP_STRINGS = f"""
-*» {BOT_NAME} [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/1c6f1abaf4b0aadd01fdf.mp4)!\n<b> ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+*» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
 ➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ.
 ➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
