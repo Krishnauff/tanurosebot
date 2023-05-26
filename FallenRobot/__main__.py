@@ -78,7 +78,7 @@ PM_START_TEXT = """
 *๏ ᴛʜɪs ɪs* {} !
  ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ғᴜɴ ᴇxᴛʀᴀ :-
 ╔═════ஜ۩۞۩ஜ════╗
-♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀](https://graph.org/file/ca464fe7eeb39b4123859.mp4)♨️
+♨️𝗠𝗔𝗗𝗘 𝗕𝗬 [𝐊𝐑𝐈𝐒𝐇𝐍𝐀)(https://te.legra.ph/file/2af50d4d3f7cf7b8b19f5.jpg)♨️
 ╚═════ஜ۩۞۩ஜ════╝
 ──────────────────
 *๏ ᴡᴀɴᴛ ᴛᴏ sᴇᴇ ᴍʏ ᴘᴏᴡᴇᴇs ? ʜᴇʜᴇ , ᴜsᴇ /help ᴏʀ ᴄᴀᴍᴍᴀɴᴅs ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛǫ ʙʏ ᴋʀɪsʜɴᴀ :- .*
@@ -106,7 +106,7 @@ InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", callback_data="source_"),
 ]
 
 HELP_STRINGS = f"""
-*» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+*» {BOT_NAME}(https://te.legra.ph/file/e42e3a3025d0809f3f5ac.jpg) ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
 ➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ.
 ➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
