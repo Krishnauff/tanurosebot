@@ -17,7 +17,7 @@ async def repo(_, message: Message):
 
 ɪ ᴀᴍ [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
-**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** [🇰𝐑𝐈𝐒𝐇𝐍𝐀](https://t.me/ab_krishna_uff)**
+**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** [ᴋʀɪsʜɴᴀ](https://t.me/ab_krishna_uff)**
 **» ᴩʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{y()}`
 **» ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{o}` 
 **» ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{s}` 
