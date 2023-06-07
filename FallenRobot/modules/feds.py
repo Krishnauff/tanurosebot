@@ -2419,7 +2419,7 @@ __help__ = """ ғᴇᴅᴇʀᴀᴛɪᴏɴ
 
 •➥ /feduserhelp : ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ ғᴏʀ ᴄᴏᴍᴍᴀɴᴅs ᴀɴʏᴏɴᴇ ᴄᴀɴ ᴜsᴇ 
 
-☆............𝙱𝚈 » [𝚅𝙸𝙿 𝙱𝙾𝚈](https://t.me/the_vip_boy)............☆"""
+☆............𝙱𝚈 » [ᴋʀɪsʜɴᴀ](https://telegram.me/NO_LOVE_I_HATE_LOVE)............☆"""
 
 
 NEW_FED_HANDLER = CommandHandler("newfed", new_fed)
