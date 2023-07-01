@@ -128,12 +128,7 @@ love_siren = [
 
 
 hack_you = [
-    "`RAAM JI \n┏━━━┓
-┃┏━┓┃
-┃┗━┛┣━━┳━━┳┓┏┓
-┃┏┓┏┫┏┓┃┏┓┃┗┛┃
-┃┃┃┗┫┏┓┃┏┓┃┃┃┃
-┗┛┗━┻┛┗┻┛┗┻┻┻┛@NO_LOVE_I_HATE_LOVE **\n\n\n🔹**ʀᴀᴀᴍ ᴊɪ:** ᴊᴀʏ sʜʀᴇᴇ ʀᴀᴍ",
+    "`[🔱ᴊᴀʏ sʜʀᴇᴇ ʀᴀᴍ ᴊɪ 🔱](https://te.legra.ph/file/58d5cfb03acae36644203.jpg)@NO_LOVE_I_HATE_LOVE **\n\n\n🔹**ʀᴀᴀᴍ ᴊɪ:** ᴊᴀʏ sʜʀᴇᴇ ʀᴀᴍ",
 ]
 
 
