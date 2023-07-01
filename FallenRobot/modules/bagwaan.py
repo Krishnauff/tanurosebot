@@ -310,12 +310,12 @@ dispatcher.add_handler(BRAINANIMATION_HANDLER)
 __help__ = """
 
 *ғᴀᴋᴇ ᴀɴɪᴍᴀᴛɪᴏɴ ᴄᴏᴍᴍᴀɴᴅ*
- ❍ /radheji - ᴜsᴇ ɪᴛ ɪғ ᴜ ʜᴀᴠᴇ ɢɪʀʟғʀɪᴇɴᴅ
- ❍ /raamji -  ᴛᴏ ʜᴀᴄᴋ ᴀɴʏ ᴜsᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ɪᴅ
- ❍ /krishnaji - ᴛᴏ ᴡɪsʜ ɢɴ ᴛᴏ ᴜʀ ʟᴏᴠᴇ
- ❍ /mahadevji  -  ᴛᴏ ᴋɪʟʟ  ᴜʀ ɢғ ᴅᴀᴅ
- ❍ /sitaji -  ᴛᴏ sᴜᴄɪᴅᴇ ᴜʀsᴇʟғ
- ❍ /hanumanji - ᴛᴏ ᴄᴀʟʟ ᴍᴀsᴛᴇʀᴍɪɴᴅ ᴘᴏʟɪᴄᴇ
+ ❍ /radheji - ʀᴀᴅʜᴇ ʀᴀᴅʜᴇ ʙᴏʟᴛᴇ ᴊᴀᴀᴏ
+ ❍ /raamji -  ʀᴀᴀᴍ ʀᴀᴍ ʙᴏʟᴛᴇ ᴊᴀᴀᴏ 
+ ❍ /krishnaji - ʜᴀʀᴇ ᴋʀɪsʜɴᴀ ʜᴀʀᴇ ᴋʀɪsʜɴᴀ
+ ❍ /mahadevji  -  ᴊᴀɪ ᴍᴀʜᴀᴅᴇᴠ
+ ❍ /sitaji -  ᴍᴀᴀ sɪᴛᴀ
+ ❍ /hanumanji - ᴊᴀɪ ʜᴀɴᴜᴍᴀᴀɴ ᴊɪ
  
 ☆............𝙱𝚈 » [KRISHNA](https://t.me/NO_LOVE_I_HATE_LOVE)............☆
 """
