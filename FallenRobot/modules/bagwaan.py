@@ -241,18 +241,18 @@ def moonanimation(update: Update, context: CallbackContext):
     for x in range(EDIT_TIMES):
         msg.edit_text(moon_ani[x % 32])
         time.sleep(EDIT_SLEEP)
-    msg.edit_text("🪷")
+    msg.edit_text("I Love You ʀᴀᴅʜᴇ ᴋʀɪsʜɴᴀ❤")
 
 
 @user_admin
 @run_async
 def bombs(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text("💣")
+    msg = update.effective_message.reply_text("🚩")
     for x in range(EDIT_TIMES):
         msg.edit_text(bomb_ettu[x % 9])
         time.sleep(EDIT_SLEEP)
-    msg.edit_text("RIP PLOX...")
+    msg.edit_text("ᴊᴀʏ ᴍᴀᴀ sɪᴛᴀ ᴊɪ ")
 
 
 @user_admin
