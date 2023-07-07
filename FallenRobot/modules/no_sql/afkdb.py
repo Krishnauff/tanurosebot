@@ -27,7 +27,7 @@ SOFTWARE.
 #     TG  :- Abishnoi_bots
 #     GITHUB :- Abishnoi69 ""
 
-from Exon.modules.no_sql import Asudb
+from FallenRobo.modules.no_sql import Asudb
 
 afkdb = Asudb.afk
 
