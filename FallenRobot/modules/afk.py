@@ -33,12 +33,12 @@ import time
 from pyrogram import filters
 from pyrogram.types import Message
 
-from FallenRobot import Abishnoi
+from FallenRobot import dispatcher
 from FallenRobot.modules.helper_funcs.readable_time import get_readable_time
 from FallenRobot.modules.no_sql.afk_db import add_afk, is_afk, remove_afk
 
 
-@Abishnoi.on_message(filters.command(["afk", "brb"]))
+@dispatcher.on_message(filters.command(["afk", "brb"]))
 async def active_afk(_, message: Message):
     if message.sender_chat:
         return
