@@ -29,7 +29,7 @@ async def repo(_, message: Message):
                     InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ", user_id=OWNER_ID),
                     InlineKeyboardButton(
                         "sᴏᴜʀᴄᴇ",
-                        url="https://te.legra.ph/file/d2c1be023acca5243efb5.jpg",
+                        url="https://graph.org/file/940c30b597928f2b84ed1.jpg",
                     ),
                 ]
             ]
