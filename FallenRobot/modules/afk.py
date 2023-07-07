@@ -1,211 +1,169 @@
-"""
-MIT License
+import html
+import random
 
-Copyright (c) 2022 ABISHNOI69
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
-
-# ""DEAR PRO PEOPLE,  DON'T REMOVE & CHANGE THIS LINE
-# TG :- @Abishnoi1m
-#     UPDATE   :- Abishnoi_bots
-#     GITHUB :- ABISHNOI69 ""
-
-
-import time
-
-from pyrogram import filters
-from pyrogram.types import Message
+from telegram import MessageEntity, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
 from FallenRobot import dispatcher
-from FallenRobot.modules.helper_funcs.readable_time import get_readable_time
-from FallenRobot.modules.no_sql.afk_db import add_afk, is_afk, remove_afk
+from FallenRobot.modules.disable import (
+    DisableAbleCommandHandler,
+    DisableAbleMessageHandler,
+)
+from FallenRobot.modules.sql import afk_sql as sql
+from FallenRobot.modules.users import get_user_id
+
+AFK_GROUP = 7
+AFK_REPLY_GROUP = 8
 
 
-@dispatcher.on_message(filters.command(["afk", "brb"]))
-async def active_afk(_, message: Message):
-    if message.sender_chat:
+@run_async
+def afk(update: Update, context: CallbackContext):
+    args = update.effective_message.text.split(None, 1)
+    user = update.effective_user
+
+    if not user:  # ignore channels
         return
-    user_id = message.from_user.id
-    verifier, reasondb = await is_afk(user_id)
-    if verifier:
-        await remove_afk(user_id)
-        try:
-            afktype = reasondb["type"]
-            timeafk = reasondb["time"]
-            data = reasondb["data"]
-            reasonafk = reasondb["reason"]
-            seenago = get_readable_time((int(time.time() - timeafk)))
-            if afktype == "text":
-                send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
-                    disable_web_page_preview=True,
-                )
-            if afktype == "text_reason":
-                send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
-                    disable_web_page_preview=True,
-                )
-            if afktype == "animation":
-                if str(reasonafk) == "None":
-                    send = await message.reply_animation(
-                        data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
-                    )
-                else:
-                    send = await message.reply_animation(
-                        data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
-                    )
-            if afktype == "photo":
-                if str(reasonafk) == "None":
-                    send = await message.reply_photo(
-                        photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
-                    )
-                else:
-                    send = await message.reply_photo(
-                        photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
-                    )
-        except Exception:
-            send = await message.reply_text(
-                f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ",
-                disable_web_page_preview=True,
-            )
 
-    if len(message.command) == 1 and not message.reply_to_message:
-        details = {
-            "type": "text",
-            "time": time.time(),
-            "data": None,
-            "reason": None,
-        }
-    elif len(message.command) > 1 and not message.reply_to_message:
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
-        details = {
-            "type": "text_reason",
-            "time": time.time(),
-            "data": None,
-            "reason": _reason,
-        }
-    elif len(message.command) == 1 and message.reply_to_message.animation:
-        _data = message.reply_to_message.animation.file_id
-        details = {
-            "type": "animation",
-            "time": time.time(),
-            "data": _data,
-            "reason": None,
-        }
-    elif len(message.command) > 1 and message.reply_to_message.animation:
-        _data = message.reply_to_message.animation.file_id
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
-        details = {
-            "type": "animation",
-            "time": time.time(),
-            "data": _data,
-            "reason": _reason,
-        }
-    elif len(message.command) == 1 and message.reply_to_message.photo:
-        await Abishnoi.download_media(
-            message.reply_to_message, file_name=f"{user_id}.jpg"
-        )
-        details = {
-            "type": "photo",
-            "time": time.time(),
-            "data": None,
-            "reason": None,
-        }
-    elif len(message.command) > 1 and message.reply_to_message.photo:
-        await Abishnoi.download_media(
-            message.reply_to_message, file_name=f"{user_id}.jpg"
-        )
-        _reason = message.text.split(None, 1)[1].strip()
-        details = {
-            "type": "photo",
-            "time": time.time(),
-            "data": None,
-            "reason": _reason,
-        }
-    elif len(message.command) == 1 and message.reply_to_message.sticker:
-        if message.reply_to_message.sticker.is_animated:
-            details = {
-                "type": "text",
-                "time": time.time(),
-                "data": None,
-                "reason": None,
-            }
-        else:
-            await Abishnoi.download_media(
-                message.reply_to_message, file_name=f"{user_id}.jpg"
-            )
-            details = {
-                "type": "photo",
-                "time": time.time(),
-                "data": None,
-                "reason": None,
-            }
-    elif len(message.command) > 1 and message.reply_to_message.sticker:
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
-        if message.reply_to_message.sticker.is_animated:
-            details = {
-                "type": "text_reason",
-                "time": time.time(),
-                "data": None,
-                "reason": _reason,
-            }
-        else:
-            await Abishnoi.download_media(
-                message.reply_to_message, file_name=f"{user_id}.jpg"
-            )
-            details = {
-                "type": "photo",
-                "time": time.time(),
-                "data": None,
-                "reason": _reason,
-            }
+    if user.id in [777000, 1087968824]:
+        return
+
+    notice = ""
+    if len(args) >= 2:
+        reason = args[1]
+        if len(reason) > 100:
+            reason = reason[:100]
+            notice = "\nYour afk reason was shortened to 100 characters."
     else:
-        details = {
-            "type": "text",
-            "time": time.time(),
-            "data": None,
-            "reason": None,
-        }
+        reason = ""
 
-    await add_afk(user_id, details)
-    await message.reply_sticker(
-        "CAACAgUAAx0CUgguZAABAdegY2N5paaiPapUxRm0RYy9Xf6dPEYAAisIAAJ2PRlXxkn7UgOIdewqBA"
-    )
-    await message.reply_text(f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
+    sql.set_afk(update.effective_user.id, reason)
+    fname = update.effective_user.first_name
+    try:
+        update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
+    except BadRequest:
+        pass
 
 
-__mod_name__ = "Aꜰᴋ"
+@run_async
+def no_longer_afk(update: Update, context: CallbackContext):
+    user = update.effective_user
+    message = update.effective_message
+
+    if not user:  # ignore channels
+        return
+
+    res = sql.rm_afk(user.id)
+    if res:
+        if message.new_chat_members:  # dont say msg
+            return
+        firstname = update.effective_user.first_name
+        try:
+            options = [
+                "{} is here!",
+                "{} is back!",
+                "{} is now in the chat!",
+                "{} is awake!",
+                "{} is back online!",
+                "{} is finally here!",
+                "Welcome back! {}",
+                "Where is {}?\nIn the chat!",
+            ]
+            chosen_option = random.choice(options)
+            update.effective_message.reply_text(chosen_option.format(firstname))
+        except:
+            return
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+@run_async
+def reply_afk(update: Update, context: CallbackContext):
+    bot = context.bot
+    message = update.effective_message
+    userc = update.effective_user
+    userc_id = userc.id
+    if message.entities and message.parse_entities(
+        [MessageEntity.TEXT_MENTION, MessageEntity.MENTION]
+    ):
+        entities = message.parse_entities(
+            [MessageEntity.TEXT_MENTION, MessageEntity.MENTION]
+        )
 
-# """
-from Exon.modules.language import gs
+        chk_users = []
+        for ent in entities:
+            if ent.type == MessageEntity.TEXT_MENTION:
+                user_id = ent.user.id
+                fst_name = ent.user.first_name
+
+                if user_id in chk_users:
+                    return
+                chk_users.append(user_id)
+
+            if ent.type != MessageEntity.MENTION:
+                return
+
+            user_id = get_user_id(message.text[ent.offset : ent.offset + ent.length])
+            if not user_id:
+                # Should never happen, since for a user to become AFK they must have spoken. Maybe changed username?
+                return
+
+            if user_id in chk_users:
+                return
+            chk_users.append(user_id)
+
+            try:
+                chat = bot.get_chat(user_id)
+            except BadRequest:
+                print("Error: Could not fetch userid {} for AFK module".format(user_id))
+                return
+            fst_name = chat.first_name
+
+            check_afk(update, context, user_id, fst_name, userc_id)
+
+    elif message.reply_to_message:
+        user_id = message.reply_to_message.from_user.id
+        fst_name = message.reply_to_message.from_user.first_name
+        check_afk(update, context, user_id, fst_name, userc_id)
 
 
-def get_help(chat):
-    return gs(chat, "afk_help")
+def check_afk(update, context, user_id, fst_name, userc_id):
+    if sql.is_afk(user_id):
+        user = sql.check_afk_status(user_id)
+        if int(userc_id) == int(user_id):
+            return
+        if not user.reason:
+            res = "{} is afk".format(fst_name)
+            update.effective_message.reply_text(res)
+        else:
+            res = "{} is afk.\nReason: <code>{}</code>".format(
+                html.escape(fst_name), html.escape(user.reason)
+            )
+            update.effective_message.reply_text(res, parse_mode="html")
 
 
-# """
+__help__ = """
+*Away from group*
+ ❍ /afk <reason>*:* mark yourself as AFK(away from keyboard).
+ ❍ brb <reason>*:* same as the afk command - but not a command.
+When marked as AFK, any mentions will be replied to with a message to say you're not available!
+"""
+
+AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
+AFK_REGEX_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"^(?i)brb(.*)$"), afk, friendly="afk"
+)
+NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.group, no_longer_afk)
+AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.group, reply_afk)
+
+dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
+dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
+dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
+dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
+
+__mod_name__ = "Aꜰᴋ​"
+__command_list__ = ["afk"]
+__handlers__ = [
+    (AFK_HANDLER, AFK_GROUP),
+    (AFK_REGEX_HANDLER, AFK_GROUP),
+    (NO_AFK_HANDLER, AFK_GROUP),
+    (AFK_REPLY_HANDLER, AFK_REPLY_GROUP),
+]
