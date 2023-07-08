@@ -203,7 +203,7 @@ def start(update: Update, context: CallbackContext):
                 "CAACAgUAAxkDAAIGIWRbVdbAq1LwNd9jCeUAAS_TtfcO5gACXAkAAhq2sFTFznStedHawi8E"
             )
             update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), , BOT_NAME),
+                PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
