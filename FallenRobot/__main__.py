@@ -71,8 +71,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 PM_START_TEXT = """
-ʜᴇʟʟᴏ {} , [🖤]({}) 
-      {}
+ʜᴇʟʟᴏ {} , [🖤](https://te.legra.ph/file/940c30b597928f2b84ed1.jpg)
 ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !} !} !
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
       [ᎧᎮ ᭄𝐌𝐫⛦𝐩𝐞𝐫𝐟𝐞𝐜𝐭࿐](https://telegram.me/NO_LOVE_I_HATE_LOVE)
@@ -204,7 +203,7 @@ def start(update: Update, context: CallbackContext):
                 "CAACAgUAAxkDAAIGIWRbVdbAq1LwNd9jCeUAAS_TtfcO5gACXAkAAhq2sFTFznStedHawi8E"
             )
             update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), (START_IMG), BOT_NAME),
+                PM_START_TEXT.format(escape_markdown(first_name), , BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
