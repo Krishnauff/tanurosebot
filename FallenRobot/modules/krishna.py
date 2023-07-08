@@ -1,11 +1,11 @@
 import asyncio
-
 from telethon import events
 from telethon.errors import UserNotParticipantError
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
 from FallenRobot import telethn as client
+
 @client.on(events.NewMessage(pattern="^/mentionall ?(.*)"))
 async def mentionall(event):
     chat_id = event.chat_id
@@ -67,7 +67,7 @@ async def mentionall(event):
         pass
 
 
-@client.on(events.NewMessage(pattern="^/admins|/admins|@admin|@admins ?(.*)"))
+@client.on(events.NewMessage(pattern="^/atag|@atag|@admins ?(.*)"))
 async def _(event):
     chat_id = event.chat_id
     if event.is_private:
@@ -146,5 +146,5 @@ __mod_name__ = "Atag"
 __help__ = """
 ──「 Only for Admins 」──
 
-❍ /admins or @admins '(reply to message or add another message) To mention all members in your group, without exception.'
+❍ /admins or @atag '(reply to message or add another message) To mention all members in your group, without exception.'
 """
