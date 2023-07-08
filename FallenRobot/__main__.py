@@ -85,21 +85,89 @@ PM_START_TEXT = """
 
 buttons = [
     [
+import importlib
+import re
+import time
+from platform import python_version as y
+from sys import argv
+
+from pyrogram import __version__ as pyrover
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram import __version__ as telever
+from telegram.error import (
+    BadRequest,
+    ChatMigrated,
+    NetworkError,
+    TelegramError,
+    TimedOut,
+    Unauthorized,
+)
+from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
+from telegram.utils.helpers import escape_markdown
+from telethon import __version__ as tlhver
+
+import FallenRobot.modules.sql.users_sql as sql
+from FallenRobot import (
+    BOT_NAME,
+    BOT_USERNAME,
+    LOGGER,
+    OWNER_ID,
+    START_IMG,
+    SUPPORT_CHAT,
+    TOKEN,
+    StartTime,
+    dispatcher,
+    pbot,
+    telethn,
+    updater,
+)
+from FallenRobot.modules import ALL_MODULES
+from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
+from FallenRobot.modules.helper_funcs.misc import paginate_modules
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "ᴍ", "ʜ", "ᴅᴀʏs"]
+
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
+
+
+PM_START_TEX = """
+ʜᴇʟʟᴏ `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ʙʀᴏ . . . 
+"""
+
+
+buttons = [
+    [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+            text="❣ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ❣︎", url=f"t.me/{BOT_USERNAME}?startgroup=new"
         ),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴀɴᴀɢᴇᴍᴇɴᴛ", callback_data="help_back"),
+        InlineKeyboardButton(text=f"🚁 ʜᴇʟᴘ 🚁", callback_data="help_back"),
+        InlineKeyboardButton(text=f"🥀sᴏᴜʀᴄᴇ🥀", callback_data="source_"),
     ],
     [
-InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="fallen_"),
-InlineKeyboardButton(text="sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
-    ],
-    [
-InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"),
-InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", callback_data="source_"),
+        InlineKeyboardButton(text="🏡 ᴀʙᴏᴜᴛ 🏡", callback_data="fallen_"),
+        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
