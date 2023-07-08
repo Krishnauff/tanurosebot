@@ -40,7 +40,7 @@ def afk(update: Update, context: CallbackContext):
     sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
     try:
-        update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
+        update.effective_message.reply_text("{} ᴀʀᴇ ᴛᴜ ᴊᴀᴀ ʀᴇ !{}".format(fname, notice))
     except BadRequest:
         pass
 
@@ -68,6 +68,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "{} is finally here!",
                 "Welcome back! {}",
                 "Where is {}?\nIn the chat!",
+                "ғɪʀ ᴀᴀ ɢᴀʏᴀᴠ ᴛᴜ {}?\n ʜᴜᴘᴘ!",
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
