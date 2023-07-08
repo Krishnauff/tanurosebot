@@ -67,7 +67,7 @@ async def mentionall(event):
         pass
 
 
-@client.on(events.NewMessage(pattern="^/admins|/admin|@admin|@admins ?(.*)"))
+@client.on(events.NewMessage(pattern="^/admins|/admins|@admin|@admins ?(.*)"))
 async def _(event):
     chat_id = event.chat_id
     if event.is_private:
@@ -140,4 +140,11 @@ async def cancel_spam(event):
 
 
 print(">>  WORKING <<")
-client.run_until_disconnected()
+
+
+__mod_name__ = "Atag"
+__help__ = """
+──「 Only for Admins 」──
+
+❍ /admins or @admins '(reply to message or add another message) To mention all members in your group, without exception.'
+"""
