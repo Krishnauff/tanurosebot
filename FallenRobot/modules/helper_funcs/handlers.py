@@ -1,13 +1,21 @@
-from telegram import Update
-from telegram.ext import CommandHandler, Filters, MessageHandler, RegexHandler
-
 import FallenRobot.modules.sql.blacklistusers_sql as sql
-from FallenRobot import ALLOW_EXCL, DEMONS, DEV_USERS, DRAGONS, TIGERS, WOLVES
+from FallenRobot import ALLOW_EXCL
+from FallenRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
+
+from telegram import Update
+from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
+from pyrate_limiter import (
+    BucketFullException,
+    Duration,
+    RequestRate,
+    Limiter,
+    MemoryListBucket,
+)
 
 if ALLOW_EXCL:
-    CMD_STARTERS = ("/", "!")
+    CMD_STARTERS = ("/", "!", ".", "•", "♡", "~", "$", "*", "?", "+", "☆")
 else:
-    CMD_STARTERS = "/"
+    CMD_STARTERS = ("/", "!", ".", "•", "♡", "~", "$", "*", "?", "+", "☆")
 
 
 class AntiSpam:
@@ -21,12 +29,17 @@ class AntiSpam:
         )
         # Values are HIGHLY experimental, its recommended you pay attention to our commits as we will be adjusting the values over time with what suits best.
         Duration.CUSTOM = 15  # Custom duration, 15 seconds
-        self.sec_limit = Rate(6, Duration.CUSTOM)  # 6 / Per 15 Seconds
-        self.min_limit = Rate(20, Duration.MINUTE)  # 20 / Per minute
-        self.hour_limit = Rate(100, Duration.HOUR)  # 100 / Per hour
-        self.daily_limit = Rate(1000, Duration.DAY)  # 1000 / Per day
-        self.rates = [self.sec_limit, self.min_limit, self.hour_limit, self.daily_limit]
-        self.limiter = Limiter(self.rates)
+        self.sec_limit = RequestRate(6, Duration.CUSTOM)  # 6 / Per 15 Seconds
+        self.min_limit = RequestRate(20, Duration.MINUTE)  # 20 / Per minute
+        self.hour_limit = RequestRate(100, Duration.HOUR)  # 100 / Per hour
+        self.daily_limit = RequestRate(1000, Duration.DAY)  # 1000 / Per day
+        self.limiter = Limiter(
+            self.sec_limit,
+            self.min_limit,
+            self.hour_limit,
+            self.daily_limit,
+            bucket_class=MemoryListBucket,
+        )
 
     def check_user(self, user):
         """
@@ -72,6 +85,7 @@ class CustomCommandHandler(CommandHandler):
                 if len(fst_word) > 1 and any(
                     fst_word.startswith(start) for start in CMD_STARTERS
                 ):
+
                     args = message.text.split()[1:]
                     command = fst_word[1:].split("@")
                     command.append(message.bot.username)
