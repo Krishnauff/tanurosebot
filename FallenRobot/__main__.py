@@ -45,7 +45,7 @@ from FallenRobot.modules import ALL_MODULES
 from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
 from FallenRobot.modules.helper_funcs.misc import paginate_modules
 
-
+KRISHNA="https://te.legra.ph/file/940c30b597928f2b84ed1.jpg",
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -71,10 +71,9 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 PM_START_TEXT = """
-ʜᴇʟʟᴏ `{}`, [!](https://te.legra.ph/file/940c30b597928f2b84ed1.jpg) ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !
+ʜᴇʟʟᴏ `{}`, [!][(KRISHNA)] ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
-      [ᎧᎮ ᭄𝐌𝐫⛦𝐩𝐞𝐫𝐟𝐞𝐜𝐭࿐](https://telegram.me/NO_LOVE_I_HATE_LOVE)
-──────────────────
+──────────────────────────────────────
 *๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
 """
 
