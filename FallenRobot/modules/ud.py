@@ -1,11 +1,12 @@
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, run_async
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
+@run_async
 def ud(update: Update, context: CallbackContext):
     message = update.effective_message
     text = message.text[len("/ud ") :]
@@ -19,14 +20,15 @@ def ud(update: Update, context: CallbackContext):
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
-UD_HANDLER = DisableAbleCommandHandler(["ud"], ud, run_async=True)
+UD_HANDLER = DisableAbleCommandHandler(["ud"], ud)
 
 dispatcher.add_handler(UD_HANDLER)
 
 __help__ = """
-» /ud (text) *:* Searchs the given text on Urban Dictionary and sends you the information.
-"""
-__mod_name__ = "Uʀʙᴀɴ D"
+» /ud (text) *:* sᴇᴀʀᴄʜs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴜʀʙᴀɴ ᴅɪᴄᴛɪᴏɴᴀʀʏ ᴀɴᴅ sᴇɴᴅs ʏᴏᴜ ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
 
+☆............𝙱𝚈 » [owner](tg://settings/ )............☆
+"""
+__mod_name__ = "⚡Uʀʙᴀɴ⚡"
 __command_list__ = ["ud"]
 __handlers__ = [UD_HANDLER]
