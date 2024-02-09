@@ -19,15 +19,17 @@ from telegram.ext import (
     CommandHandler,
     Filters,
     MessageHandler,
+    run_async,
 )
 from telegram.utils.helpers import mention_html
 
 import FallenRobot.modules.sql.chatbot_sql as sql
-from FallenRobot import BOT_ID, BOT_NAME, BOT_USERNAME, dispatcher
-from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from FallenRobot.modules.log_channel import gloggable
+from  FallenRobot import BOT_ID, BOT_NAME, BOT_USERNAME, dispatcher
+from  FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from  FallenRobot.modules.log_channel import gloggable
 
 
+@run_async
 @user_admin_no_reply
 @gloggable
 def fallenrm(update: Update, context: CallbackContext) -> str:
@@ -56,6 +58,7 @@ def fallenrm(update: Update, context: CallbackContext) -> str:
     return ""
 
 
+@run_async
 @user_admin_no_reply
 @gloggable
 def fallenadd(update: Update, context: CallbackContext) -> str:
@@ -84,6 +87,7 @@ def fallenadd(update: Update, context: CallbackContext) -> str:
     return ""
 
 
+@run_async
 @user_admin
 @gloggable
 def fallen(update: Update, context: CallbackContext):
@@ -92,8 +96,8 @@ def fallen(update: Update, context: CallbackContext):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="add_chat({})"),
-                InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="rm_chat({})"),
+                InlineKeyboardButton(text="📍ᴇɴᴀʙʟᴇ📍", callback_data="add_chat({})"),
+                InlineKeyboardButton(text="📍ᴅɪsᴀʙʟᴇ📍", callback_data="rm_chat({})"),
             ],
         ]
     )
@@ -108,7 +112,7 @@ def fallen_message(context: CallbackContext, message):
     reply_message = message.reply_to_message
     if message.text.lower() == "fallen":
         return True
-    elif BOT_USERNAME in message.text:
+    elif BOT_USERNAME in message.text.upper():
         return True
     elif reply_message:
         if reply_message.from_user.id == BOT_ID:
@@ -129,24 +133,26 @@ def chatbot(update: Update, context: CallbackContext):
         if not fallen_message(context, message):
             return
         bot.send_chat_action(chat_id, action="typing")
-        request = requests.get(
-            f"https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/{BOT_NAME}/Anonymous/message={message.text}"
-        )
+        request = requests.get( 
+f"https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/{BOT_NAME}/Anonymous/message={message.text}"
+  ) 
         results = json.loads(request.text)
         sleep(0.5)
         message.reply_text(results["reply"])
 
 
 __help__ = f"""
-*{BOT_NAME} has an chatbot which provides you a seemingless chatting experience :*
+*{BOT_NAME} ʜᴀs ᴀɴ ᴄʜᴀᴛʙᴏᴛ ᴡʜɪᴄʜ  ᴘʀᴏᴠɪᴅᴇs ʏᴏᴜ ᴀ sᴇᴇᴍɪɴɢʟᴇss ᴄʜᴀᴛᴛɪɴɢ ᴇxᴘᴇʀɪᴇɴᴄᴇ :*
 
- »  /chatbot *:* Shows chatbot control panel
+ »  /ᴄʜᴀᴛʙᴏᴛ *:* sʜᴏᴡs ᴄʜᴀᴛʙᴏᴛ ᴄᴏɴᴛʀᴏʟ ᴘᴀɴᴇʟ
+
+☆............𝙱𝚈 » [owner](https://t.me/NO_LOVE_I_HATE_LOVE)............☆
 """
 
-__mod_name__ = "Cʜᴀᴛʙᴏᴛ"
+__mod_name__ = "♨️Cʜᴀᴛʙᴏᴛ♨️"
 
 
-CHATBOTK_HANDLER = CommandHandler("chatbot", fallen, run_async=True)
+CHATBOTK_HANDLER = CommandHandler("chatbot", fallen)
 ADD_CHAT_HANDLER = CallbackQueryHandler(fallenadd, pattern=r"add_chat")
 RM_CHAT_HANDLER = CallbackQueryHandler(fallenrm, pattern=r"rm_chat")
 CHATBOT_HANDLER = MessageHandler(
@@ -165,4 +171,4 @@ __handlers__ = [
     CHATBOTK_HANDLER,
     RM_CHAT_HANDLER,
     CHATBOT_HANDLER,
-]
+            ]
