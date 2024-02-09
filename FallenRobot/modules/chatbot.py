@@ -1,9 +1,7 @@
-# <============================================== IMPORTS =========================================================>
-import asyncio
 import html
 import json
 import re
-from typing import Optional
+from time import sleep
 
 import requests
 from telegram import (
@@ -11,176 +9,161 @@ from telegram import (
     Chat,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    ParseMode,
     Update,
     User,
 )
 from telegram.ext import (
+    CallbackContext,
     CallbackQueryHandler,
     CommandHandler,
-    ContextTypes,
+    Filters,
     MessageHandler,
-    filters,
 )
-from telegram.helpers import mention_html
+from telegram.utils.helpers import mention_html
 
-import Database.sql.kuki_sql as sql
-from FallenRobot import function
-from FallenRobot.plugins.log_channel import gloggable
+import FallenRobot.modules.sql.chatbot_sql as sql
+from FallenRobot import BOT_ID, BOT_NAME, BOT_USERNAME, dispatcher
+from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from FallenRobot.modules.log_channel import gloggable
 
-# <=======================================================================================================>
 
-
-# <================================================ FUNCTION =======================================================>
+@user_admin_no_reply
 @gloggable
-async def kukirm(update: Update, context: ContextTypes.DEFAULT_TYPE):
+def fallenrm(update: Update, context: CallbackContext) -> str:
     query: Optional[CallbackQuery] = update.callback_query
     user: Optional[User] = update.effective_user
-    if match := re.match(r"rm_chat\((.+?)\)", query.data):
-        user_id = match[1]
+    match = re.match(r"rm_chat\((.+?)\)", query.data)
+    if match:
+        user_id = match.group(1)
         chat: Optional[Chat] = update.effective_chat
-        if is_kuki := sql.rem_kuki(chat.id):
-            sql.rem_kuki(user_id)
+        is_fallen = sql.set_fallen(chat.id)
+        if is_fallen:
+            is_fallen = sql.set_fallen(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"AI_DISABLED\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+                f"<b>Admin :</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             )
         else:
-            await update.effective_message.edit_text(
-                f"Chatbot disable by {mention_html(user.id, user.first_name)}.",
+            update.effective_message.edit_text(
+                "{} ᴄʜᴀᴛʙᴏᴛ ᴅɪsᴀʙʟᴇᴅ ʙʏ {}.".format(
+                    dispatcher.bot.first_name, mention_html(user.id, user.first_name)
+                ),
                 parse_mode=ParseMode.HTML,
             )
 
     return ""
 
 
+@user_admin_no_reply
 @gloggable
-async def kukiadd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+def fallenadd(update: Update, context: CallbackContext) -> str:
     query: Optional[CallbackQuery] = update.callback_query
     user: Optional[User] = update.effective_user
-    if match := re.match(r"add_chat\((.+?)\)", query.data):
-        user_id = match[1]
+    match = re.match(r"add_chat\((.+?)\)", query.data)
+    if match:
+        user_id = match.group(1)
         chat: Optional[Chat] = update.effective_chat
-        if is_kuki := sql.set_kuki(chat.id):
-            sql.set_kuki(user_id)
+        is_fallen = sql.rem_fallen(chat.id)
+        if is_fallen:
+            is_fallen = sql.rem_fallen(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"AI_ENABLE\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+                f"<b>Admin :</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             )
         else:
-            await update.effective_message.edit_text(
-                f"Hey Darling Chatbot enable by {mention_html(user.id, user.first_name)}.",
+            update.effective_message.edit_text(
+                "{} ᴄʜᴀᴛʙᴏᴛ ᴇɴᴀʙʟᴇᴅ ʙʏ {}.".format(
+                    dispatcher.bot.first_name, mention_html(user.id, user.first_name)
+                ),
                 parse_mode=ParseMode.HTML,
             )
 
     return ""
 
 
+@user_admin
 @gloggable
-async def kuki(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    update.effective_user
+def fallen(update: Update, context: CallbackContext):
     message = update.effective_message
-    msg = "Choose an option"
+    msg = "• ᴄʜᴏᴏsᴇ ᴀɴ ᴏᴩᴛɪᴏɴ ᴛᴏ ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ"
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text="Enable", callback_data="add_chat({})")],
-            [InlineKeyboardButton(text="Disable", callback_data="rm_chat({})")],
+            [
+                InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="add_chat({})"),
+                InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="rm_chat({})"),
+            ],
         ]
     )
-    await message.reply_text(
-        msg,
+    message.reply_text(
+        text=msg,
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML,
     )
 
 
-async def kuki_message(context: ContextTypes.DEFAULT_TYPE, message):
+def fallen_message(context: CallbackContext, message):
     reply_message = message.reply_to_message
-    if message.text.lower() == "kuki":
+    if message.text.lower() == "fallen":
         return True
-    if reply_message:
-        if reply_message.from_user.id == (await context.bot.get_me()).id:
+    elif BOT_USERNAME in message.text:
+        return True
+    elif reply_message:
+        if reply_message.from_user.id == BOT_ID:
             return True
     else:
         return False
 
 
-async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    update.effective_user
+def chatbot(update: Update, context: CallbackContext):
     message = update.effective_message
     chat_id = update.effective_chat.id
     bot = context.bot
-    is_kuki = sql.is_kuki(chat_id)
-    if not is_kuki:
+    is_fallen = sql.is_fallen(chat_id)
+    if is_fallen:
         return
 
     if message.text and not message.document:
-        if not await kuki_message(context, message):
+        if not fallen_message(context, message):
             return
-        Message = message.text
-        await bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get(
-            f"http://api.brainshop.ai/get?bid=176809&key=lbMN8CXTGzhn1NKG&uid=[user]&msg={Message}"
+        bot.send_chat_action(chat_id, action="typing")
+        request = requests.get(
+            f"https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/{BOT_NAME}/Anonymous/message={message.text}"
         )
-
-        Kuki = json.loads(kukiurl.text)
-        kuki = Kuki["cnt"]
-
-        await asyncio.sleep(0.3)
-        await message.reply_text(kuki)
+        results = json.loads(request.text)
+        sleep(0.5)
+        message.reply_text(results["reply"])
 
 
-async def list_all_chats(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chats = sql.get_all_kuki_chats()
-    text = "<b>Neko Enabled Chats</b>\n"
-    for chat in chats:
-        try:
-            x = await context.bot.get_chat(int(*chat))
-            name = x.title or x.first_name
-            text += f"• <code>{name}</code>\n"
-        except (BadRequest, Forbidden):
-            sql.rem_kuki(*chat)
-        except RetryAfter as e:
-            await asyncio.sleep(e.retry_after)
-    await update.effective_message.reply_text(text, parse_mode="HTML")
+__help__ = f"""
+*{BOT_NAME} has an chatbot which provides you a seemingless chatting experience :*
 
-
-# <=================================================== HELP ====================================================>
-
-
-__help__ = """
-➠ *Admins only command*:
-
-» /chatbot: shows chatbot panel.
+ »  /chatbot *:* Shows chatbot control panel
 """
 
-__mod_name__ = "CHATBOT"
+__mod_name__ = "Cʜᴀᴛʙᴏᴛ"
 
 
-# <================================================ HANDLER =======================================================>
-CHATBOTK_HANDLER = CommandHandler("chatbot", kuki, block=False)
-ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat", block=False)
-RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", block=False)
+CHATBOTK_HANDLER = CommandHandler("chatbot", fallen, run_async=True)
+ADD_CHAT_HANDLER = CallbackQueryHandler(fallenadd, pattern=r"add_chat", run_async=True)
+RM_CHAT_HANDLER = CallbackQueryHandler(fallenrm, pattern=r"rm_chat", run_async=True)
 CHATBOT_HANDLER = MessageHandler(
-    filters.TEXT
-    & (~filters.Regex(r"^#[^\s]+") & ~filters.Regex(r"^!") & ~filters.Regex(r"^\/")),
+    Filters.text
+    & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!") & ~Filters.regex(r"^\/")),
     chatbot,
-    block=False,
+    run_async=True,
 )
-LIST_ALL_CHATS_HANDLER = CommandHandler("allchats", list_all_chats, block=False)
 
-function(ADD_CHAT_HANDLER)
-function(CHATBOTK_HANDLER)
-function(RM_CHAT_HANDLER)
-function(LIST_ALL_CHATS_HANDLER)
-function(CHATBOT_HANDLER)
+dispatcher.add_handler(ADD_CHAT_HANDLER)
+dispatcher.add_handler(CHATBOTK_HANDLER)
+dispatcher.add_handler(RM_CHAT_HANDLER)
+dispatcher.add_handler(CHATBOT_HANDLER)
 
 __handlers__ = [
     ADD_CHAT_HANDLER,
     CHATBOTK_HANDLER,
     RM_CHAT_HANDLER,
-    LIST_ALL_CHATS_HANDLER,
     CHATBOT_HANDLER,
 ]
-# <================================================ END =======================================================>
