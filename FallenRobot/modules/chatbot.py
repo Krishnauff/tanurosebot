@@ -14,7 +14,6 @@ from telegram import (
     Update,
     User,
 )
-from telegram.error import BadRequest, Forbidden, RetryAfter
 from telegram.ext import (
     CallbackQueryHandler,
     CommandHandler,
