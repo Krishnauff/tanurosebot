@@ -17,7 +17,7 @@ async def repo(_, message: Message):
 
 ɪ ᴀᴍ [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
-**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** [ᴍʀ_ᴋʀɪsʜɴᴀ🥂](https://t.me/ab_krishna_uff)**
+**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** [ᴍʀ_ᴋʀɪsʜɴᴀ🥂](https://t.me/Tanu_update)**
 **» ᴩʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{y()}`
 **» ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{o}` 
 **» ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{s}` 
@@ -29,7 +29,7 @@ async def repo(_, message: Message):
                     InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ", user_id=OWNER_ID),
                     InlineKeyboardButton(
                         "sᴏᴜʀᴄᴇ",
-                        url="https://graph.org/file/940c30b597928f2b84ed1.jpg",
+                        url="https://t.me/Tanu_update",
                     ),
                 ]
             ]
