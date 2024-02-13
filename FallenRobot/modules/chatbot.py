@@ -160,7 +160,7 @@ CHATBOT_HANDLER = MessageHandler(
     & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!") & ~Filters.regex(r"^\/")),
     chatbot,
 )
-LIST_ALL_CHATS_HANDLER = CommandHandler("allchats", list_all_chats, block=False)
+LIST_ALL_CHATS_HANDLER = CommandHandler("allchats", block=False)
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOTK_HANDLER)
