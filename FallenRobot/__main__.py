@@ -70,37 +70,45 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = """
-ʜᴇʟʟᴏ `{}`,[,](https://te.legra.ph/file/940c30b597928f2b84ed1.jpg) ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !
-➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
-───────────────────────────
-*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
+PM_START_TEXT = """ 
+*ʜᴇʏ* {} , 🥀
+*๏ ɪ'ᴍ {} ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘs!
+ʜɪᴛ ʜᴇʟᴘ ᴛᴏ ғɪɴᴅ ᴏᴜᴛ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ɪɴ ᴍʏ ғᴜʟʟ ᴘᴏᴛᴇɴᴛɪᴀʟ!*
+➻ *ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ  ➕ ᴍᴜsɪᴄ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴀɴᴅ ɪ ʜᴀᴠᴇ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.*
+─────────────────
+   *➻ ᴜsᴇʀs »* {}
+   *➻ ᴄʜᴀᴛs »* {}
+─────────────────
 """
-
 
 buttons = [
     [
+        InlineKeyboardButton(text="🏡", callback_data="mukesh_back"),
+        InlineKeyboardButton(text="🛡️", callback_data="mukesh_"),
+        InlineKeyboardButton(text="💳", callback_data="source_"),
+        InlineKeyboardButton(text="🧑‍💻", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="🖥️", callback_data="Main_help"),
+     ],
+    [
         InlineKeyboardButton(
-            text="❣ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ❣︎", url=f"t.me/{BOT_USERNAME}?startgroup=new"
+            text="Aᴅᴅ Mᴇ ᴛᴏ Yᴏᴜʀ Gʀᴏᴜᴘ",
+            url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text=f"🚁 ʜᴇʟᴘ 🚁", callback_data="help_back"),
-        InlineKeyboardButton(text=f"🥀sᴏᴜʀᴄᴇ🥀", callback_data="source_"),
+        InlineKeyboardButton(text="📚 ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs", callback_data="Main_help"),
     ],
-    [
-        InlineKeyboardButton(text="🏡 ᴀʙᴏᴜᴛ 🏡", callback_data="fallen_"),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
-    ],
+    
+
 ]
 
 HELP_STRINGS = f"""
-*» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+» *{BOT_NAME}  ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴀʙᴏᴜᴛ sᴘᴇᴄɪғɪᴄs ᴄᴏᴍᴍᴀɴᴅ*"""
 
-➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ.
-➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
-  ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
-  ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ ᴍᴏᴅᴜʟᴇꜱ."""
+DONATE_STRING = f"""ʜᴇʏ ʙᴀʙʏ,
+  ʜᴀᴩᴩʏ ᴛᴏ ʜᴇᴀʀ ᴛʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴅᴏɴᴀᴛᴇ.
+
+ʏᴏᴜ ᴄᴀɴ ᴅɪʀᴇᴄᴛʟʏ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ @Legend\_coder ғᴏʀ ᴅᴏɴᴀᴛɪɴɢ ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴍʏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ @the\_support\_chat ᴀɴᴅ ᴀsᴋ ᴛʜᴇʀᴇ ᴀʙᴏᴜᴛ ᴅᴏɴᴀᴛɪᴏɴ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -113,7 +121,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("FallenRobot.modules." + module_name)
+    imported_module = importlib.import_module("MukeshRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -152,18 +160,17 @@ for module_name in ALL_MODULES:
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
-    dispatcher.bot.send_message(
+    dispatcher.bot.send_photo(
         chat_id=chat_id,
-        text=text,
+        photo=START_IMG,
+        caption=text,
         parse_mode=ParseMode.MARKDOWN,
-        disable_web_page_preview=True,
         reply_markup=keyboard,
     )
 
-
-@run_async
 def start(update: Update, context: CallbackContext):
     args = context.args
+    global uptime
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
         if len(args) >= 1:
@@ -180,9 +187,8 @@ def start(update: Update, context: CallbackContext):
                         [[InlineKeyboardButton(text="◁", callback_data="help_back")]]
                     ),
                 )
-
             elif args[0].lower() == "markdownhelp":
-                IMPORTED["Exᴛʀᴀs"].markdown_help_sender(update)
+                IMPORTED["exᴛʀᴀs"].markdown_help_sender(update)
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
                 chat = dispatcher.bot.getChat(match.group(1))
@@ -197,11 +203,24 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_sticker(
-                "CAACAgUAAxkBAAJ3CWXLk8Edv41bvQeL-kHKuQmundvuAALxDQACvJBZVs2CPidFq46INAQ"
+            
+            x=update.effective_message.reply_sticker(
+                "CAACAgUAAxkBAAI33mLYLNLilbRI-sKAAob0P7koTEJNAAIOBAACl42QVKnra4sdzC_uKQQ")
+            x.delete()
+            usr = update.effective_user
+            lol = update.effective_message.reply_text(
+                PM_START_TEX.format(usr.first_name), parse_mode=ParseMode.MARKDOWN
             )
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name),  BOT_NAME),
+            time.sleep(0.4)
+            lol.edit_text("❤")
+            time.sleep(0.5)
+            lol.edit_text("⚡")
+            time.sleep(0.3)
+            lol.edit_text("ꜱᴛᴀʀᴛɪɴɢ... ")
+            time.sleep(0.4)
+            lol.delete()
+            
+            update.effective_message.reply_photo(START_IMG,PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME,sql.num_users(),sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -209,11 +228,12 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_photo(
             START_IMG,
-            caption=" ᴊᴀɪ sʜʀᴇᴇ ʀᴀᴀᴍ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ:</b> <code>{}</code>".format(
+            caption="ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ  !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
         )
+
 
 
 def error_handler(update, context):
