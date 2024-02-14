@@ -71,7 +71,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 PM_START_TEXT = """
-ʜᴇʟʟᴏ `{}`,[,](https://te.legra.ph/file/940c30b597928f2b84ed1.jpg) ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !
+ʜᴇʟʟᴏ `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \n*๏ ᴛʜɪs ɪs* {} !
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
 ───────────────────────────
 *๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
@@ -200,7 +200,7 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_sticker(
                 "CAACAgUAAxkDAAIGIWRbVdbAq1LwNd9jCeUAAS_TtfcO5gACXAkAAhq2sFTFznStedHawi8E"
             )
-            update.effective_message.reply_text(
+            update.effective_message.reply_text(START_IMG,
                 PM_START_TEXT.format(escape_markdown(first_name),  BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
