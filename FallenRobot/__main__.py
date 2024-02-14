@@ -164,7 +164,7 @@ def send_help(chat_id, text, keyboard=None):
     dispatcher.bot.send_photo(
         chat_id=chat_id,
         photo=START_IMG,
-        caption=text,
+        taxt=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard,
     )
