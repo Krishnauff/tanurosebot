@@ -70,11 +70,10 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = """ `{}`,[,](https://te.legra.ph/file/940c30b597928f2b84ed1.jpg) ʜᴇʏ* , 🥀
-*๏ ɪ'ᴍ {} ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘs!
-ʜɪᴛ ʜᴇʟᴘ ᴛᴏ ғɪɴᴅ ᴏᴜᴛ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ɪɴ ᴍʏ ғᴜʟʟ ᴘᴏᴛᴇɴᴛɪᴀʟ!*
-➻ *ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴀɴᴅ ɪ ʜᴀᴠᴇ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.*
-─────────────────────────────────────.*
+PM_START_TEXT = """ Hey there {}! My name {} is Rose - I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
+
+Join my news channel to get information on all the latest updates..*
+─────────────────────────────────.*
 """
 
 
