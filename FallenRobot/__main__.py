@@ -70,7 +70,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = """ Hey there {}! My name  is Tanu - I'm here to help you manage your groups! Hit  **/help to find out more about how to use me to my full potential.
+PM_START_TEXT = """ Hey there {}! My name {}  is - I'm here to help you manage your groups! Hit  **/help to find out more about how to use me to my full potential.
 
 Join my [news channel](https://t.me/Tanu_update) to get information on all the latest updates..*
 ─────────────────────────────────.*
@@ -200,7 +200,7 @@ def start(update: Update, context: CallbackContext):
                 "CAACAgUAAxkDAAIGIWRbVdbAq1LwNd9jCeUAAS_TtfcO5gACXAkAAhq2sFTFznStedHawi8E"
             )
             update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name),
+                PM_START_TEXT.format(escape_markdown(first_name),BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
