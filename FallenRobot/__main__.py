@@ -163,7 +163,6 @@ def send_help(chat_id, text, keyboard=None):
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_message(
         chat_id=chat_id,
-        photo=START_IMG,
         taxt=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard,
