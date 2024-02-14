@@ -86,11 +86,11 @@ PM_START_TEXT = """
 
 buttons = [
     [
-        InlineKeyboardButton(text="🏡", callback_data="mukesh_back"),
+        InlineKeyboardButton(text="🏡", callback_data="help_back"),
         InlineKeyboardButton(text="🛡️", callback_data="fallen_"),
-        InlineKeyboardButton(text="💳", callback_data="source_"),
+        InlineKeyboardButton(text="💳", url=f"https://t.me/{SUPPORT_CHAT}"),
         InlineKeyboardButton(text="🧑‍💻", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="🖥️", callback_data="help_back"),
+        InlineKeyboardButton(text="🖥️", callback_data="source_"),
      ],
     [
         InlineKeyboardButton(
@@ -133,8 +133,7 @@ for module_name in ALL_MODULES:
     else:
         raise Exception("Can't have two modules with the same name! Please change one")
 
-    if hasattr(imported_module, "__help__") and imported_module.__help__:
-        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+    if hasattr(imported_module, "__help__") and imported_module.__help__: HELPABLE[imported_module.__mod_name__.lower()] = imported_module
 
     # Chats to migrate on chat_migrated events
     if hasattr(imported_module, "__migrate__"):
