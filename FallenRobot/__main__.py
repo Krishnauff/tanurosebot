@@ -70,9 +70,9 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = """ Hey there {}! My name {} is Rose - I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
+PM_START_TEXT = """ Hey there {}! My name  is Tanu - I'm here to help you manage your groups! Hit  **/help to find out more about how to use me to my full potential.
 
-Join my news channel to get information on all the latest updates..*
+Join my [news channel](https://t.me/Tanu_update) to get information on all the latest updates..*
 ─────────────────────────────────.*
 """
 
@@ -80,16 +80,16 @@ Join my news channel to get information on all the latest updates..*
 buttons = [
     [
         InlineKeyboardButton(
-            text="❣ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ❣︎", url=f"t.me/{BOT_USERNAME}?startgroup=new"
+            text=" ADD ME BABY ", url=f"t.me/{BOT_USERNAME}?startgroup=new"
         ),
     ],
     [
-        InlineKeyboardButton(text=f"🚁 ʜᴇʟᴘ 🚁", callback_data="help_back"),
-        InlineKeyboardButton(text=f"🥀sᴏᴜʀᴄᴇ🥀", callback_data="source_"),
+        InlineKeyboardButton(text=f"Help", callback_data="help_back"),
+        InlineKeyboardButton(text=f"source", callback_data="source_"),
     ],
     [
-        InlineKeyboardButton(text="🏡 ᴀʙᴏᴜᴛ 🏡", callback_data="fallen_"),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="About", callback_data="fallen_"),
+        InlineKeyboardButton(text="Dev", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
@@ -200,7 +200,7 @@ def start(update: Update, context: CallbackContext):
                 "CAACAgUAAxkDAAIGIWRbVdbAq1LwNd9jCeUAAS_TtfcO5gACXAkAAhq2sFTFznStedHawi8E"
             )
             update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name),  BOT_NAME),
+                PM_START_TEXT.format(escape_markdown(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
