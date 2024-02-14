@@ -68,10 +68,7 @@ def get_readable_time(seconds: int) -> str:
     time_list.reverse()
     ping_time += ":".join(time_list)
 
-    return ping_time
-PM_START_TEX = """
-ʜᴇʟʟᴏ `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ʙʀᴏ . . . 
-"""
+      return ping_time
 
 
 PM_START_TEXT = """ 
