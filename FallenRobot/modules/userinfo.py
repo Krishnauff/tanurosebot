@@ -319,10 +319,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ʜᴇᴀʟᴛʜ", url="https://t.me/cutechomu"
+                                "ʜᴇᴀʟᴛʜ", url="https://telegram.me/ur_Intoxicated"
                             ),
                             InlineKeyboardButton(
-                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="https://t.me/cutechomu"
+                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="tg://settings/"
                             ),
                         ],
                     ]
