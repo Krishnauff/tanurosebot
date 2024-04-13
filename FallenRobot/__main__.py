@@ -203,7 +203,7 @@ def start(update: Update, context: CallbackContext):
                 PM_START_TEXT.format(escape_markdown(first_name),BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
+                timeout=120,
             )
     else:
         update.effective_message.reply_photo(
